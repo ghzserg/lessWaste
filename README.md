@@ -30,11 +30,11 @@
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - Change web ui to **Mainsail** running the `WEB` command
-- Run `ENABLE_PLUGIN name= ` command from the console.
+- Run `ENABLE_PLUGIN name=lessWaste` command from the console.
 - Use this [3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf) with Orca slicer.
 
 ## How to uninstall
-- Run the `DISABLE_PLUGIN name= ` command from the console.
+- Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
 - (Optional) Go back to stock screen `DISPLAY_ON`
 - (Optional) Go back to Fluidd `WEB`
 
