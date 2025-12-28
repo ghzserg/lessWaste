@@ -60,3 +60,4 @@ Let's do what Flashforge didn't want to do!
 
 ## Credits
 Sergei (ghzserg) [zmod](https://github.com/ghzserg/zmod)
+Raúl (function3d) [bambufy](https://github.com/function3d/bambufy)
