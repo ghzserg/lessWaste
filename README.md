@@ -1,7 +1,10 @@
 # WIP - ALPHA
-# Bambufy AD5X
-   - Compatible with Bambu Studio, better management of the prime tower
-   ([3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_BambuStudio.3mf))
+requirements
+- Orcaslicer compatability
+- using ZMOD global settings
+- awesome optimization based on bambufy
+- might be a seperate project or pushed back depending on where this goes
+# lessWate AD5X
    - Compatible with Orca slicer ([3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf))
    - Purge sequences fully controlled by the slicer (same behavior as
    Bambu Lab printers)
@@ -27,37 +30,18 @@
    - Improved routine for automatic print recovery after power outages or
    errors
 
-## Bambu Studio
-<img width="812" width="1436" height="799" alt="image" src="https://github.com/user-attachments/assets/1d6a9e77-8b35-4d04-96d4-d92022a3500b" />
-
-## Flush volumes
-<img width="812" width="1307" height="810" alt="image" src="https://github.com/user-attachments/assets/fea280f2-809d-4bae-a744-4a4c36465881" />
-
-## Mainsail
-<img width="812" width="1059" height="810" alt="image" src="https://github.com/user-attachments/assets/bf80b66f-46e2-4b48-af52-d6f44f5accc8" />
-
 ## How to install
 
 - Install [zmod](https://github.com/ghzserg/zmod) following the [instructions](https://github.com/ghzserg/zmod/wiki/Setup_en#installing-the-mod)
 - Change the native display to **Guppyscreen** running the `DISPLAY_OFF` command
 - Change web ui to **Mainsail** running the `WEB` command
-- Run `ENABLE_PLUGIN name=bambufy` command from the console.
-- Use this [3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_BambuStudio.3mf) with Bambu Studio (from there you can save settings such as user profiles)
+- Run `ENABLE_PLUGIN name=lessWaste` command from the console.
 - Use this [3MF](https://github.com/function3d/bambufy/releases/download/v1.1.0/ArticulatedCuteTurtle_Multicolor4Color_Orca.3mf) with Orca slicer.
 
 ## How to uninstall
-- Run the `DISABLE_PLUGIN name=bambufy` command from the console.
+- Run the `DISABLE_PLUGIN name=lessWaste` command from the console.
 - (Optional) Go back to stock screen `DISPLAY_ON`
 - (Optional) Go back to Fluidd `WEB`
-
-## [Multicolor printing nopoop (Orca)](https://github.com/function3d/bambufy/blob/master/MACHINE_GCODE.md#orca-slicer-change-filament-g-code-unified-poop-and-nopoop)
-
-## Pull requests and issues are welcome!
-Let's do what Flashforge didn't want to do!
-
-## Results
-<img width="812" alt="image" src="https://github.com/user-attachments/assets/f6812bbf-ffd2-45d0-85fb-2e95d7d04b9b" />
-<img width="812" alt="image" src="https://github.com/user-attachments/assets/8ad8ce59-6f45-44ef-88ec-be9ecdcfb7f0" />
 
 ## Credits
 - Raúl (function3d) [bambufy](https://github.com/function3d/bambufy)
