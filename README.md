@@ -3,9 +3,14 @@
 *Does not work with Bambu Studio - removed functions for a performance boost
 
 Changes relative to bambufy:
-- Altered print start routine (stay in bucket more, raise bed in advance)
+- Altered print start routine
+  - Reduce oozing
+  - Raise bed in advance
 - LINE_PURGE toggle in dialog
 - Handles large G-code
+- Altered end print routine
+  - Leave the print quick
+  - Purge filament that is stuck in the tube between the extruder and IFS when the reel is empty
 
 Test conditions:
 - Enabled Plugins: recommend,lessWaste
@@ -62,7 +67,7 @@ Cons: The settings "Flush into object's infill" and "Flush into objects' support
 
 Best used for: Infrequent filament swaps where it is more efficient to build a small prime tower instead of a large one on every layer.
 
-Notes: Use the print time and total filament used to compare between options. You can estimate the reduction in purge needed with the "Flush into" option and adjust the "Flushing volume" amount to compensate, but there is a risk that some layers will bleed more than others.
+Notes: Use the print time and total filament used to compare between options. You can try to estimate the reduction in purge needed with the "Flush into" options and adjust the "Flushing volume" amount to compensate, but there is a risk that some layers will bleed more than others.
 
 ## Flush volumes starting point
 Set multiplier to 1, recalculate, then set any value lower than 90 to 90.
