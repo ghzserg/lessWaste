@@ -195,3 +195,8 @@ M204 S[default_acceleration]
 ```
 PAUSE
 ```
+## Filename format
+Best to have a unique filename
+```
+{input_filename_base}_{timestamp}.gcode
+```
