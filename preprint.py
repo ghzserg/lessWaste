@@ -55,7 +55,7 @@ def stream_detect_slicer_and_metadata(path):
             # Detect already processed
             if already is None and line.startswith("; _IFS_COLORS"):
                 already = line.strip() + "\n"
-                break
+                #break #todo - optimize this later
 
             # Capture metadata lines
             #for key in metadata_keys:
@@ -273,12 +273,6 @@ def main():
     ) = stream_detect_slicer_and_metadata(file_path)
     end = time.time()
     print("Complete - " + f" took {end - start:.4f} seconds")
-    if already:
-        print("Already post-processed" + "\n")
-        #print(already)
-        with open(PRINTER_PATH, "a", encoding="utf-8") as f:
-            f.write(already)
-        sys.exit(0)
 
     exclude = get_exclude_object_define_streaming(first_layer)
 
@@ -291,6 +285,13 @@ def main():
         f'VERSION={version} '
         f'EXCLUDE="{exclude}"'
     )
+
+    if already:
+        print("Already post-processed" + "\n")
+        #print(already)
+        with open(PRINTER_PATH, "a", encoding="utf-8") as f:
+            f.write(ifs_colors + "\n")
+        sys.exit(0)
 
     #print(ifs_colors + "\n")
     print("Generating G-code MD5...")
