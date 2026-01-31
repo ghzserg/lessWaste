@@ -14,7 +14,7 @@ PRINTER_PATH = "/tmp/printer"
 def stream_detect_slicer_and_metadata(path):
     """Streaming pass: detect slicer, detect _IFS_COLORS, extract metadata lines,
        extract filament colors/types, feedrates, and capture first layer."""
-    slicer = "orca"
+    slicer = ""
     already = None
     colors = []
     types = []
@@ -46,21 +46,22 @@ def stream_detect_slicer_and_metadata(path):
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
         for line in f:
             # Detect slicer (first 20 lines only)
-            #if not slicer:
-            #    if "BambuStudio" in line:
-            #        slicer = "bambu"
-            #    elif "OrcaSlicer" in line:
-            #        slicer = "orca"
+            if not slicer:
+                if "BambuStudio" in line:
+                    slicer = "bambu"
+                elif "OrcaSlicer" in line:
+                    slicer = "orca"
 
             # Detect already processed
             if already is None and line.startswith("; _IFS_COLORS"):
                 already = line.strip() + "\n"
                 #break #todo - optimize this later
 
-            # Capture metadata lines
-            #for key in metadata_keys:
-            #    if key in line and key not in metadata_lines:
-            #        metadata_lines[key] = line.strip()
+            # Capture metadata lines for Bambu
+            if slicer != "orca":
+                for key in metadata_keys:
+                    if key in line and key not in metadata_lines:
+                        metadata_lines[key] = line.strip()
 
             # Capture filament colors/types
             if line.startswith("; filament_colour ="):
@@ -72,11 +73,11 @@ def stream_detect_slicer_and_metadata(path):
             if line.startswith("; filament_max_volumetric_speed ="):
                 filament_max_vol_line = line
 
-            # Capture change_filament_gcode version
-            if version == "1.2.2" and "less_waste:" in line:
-                m = re.search(r"less_waste:\s*v([\d.]+)", line)
+            # Capture change_filament_gcode version - either one for now
+            if version == "1.2.2" and ("less_waste:" in line or "Bambufy:" in line):    
+                m = re.search(r"(less_waste:|Bambufy:)\s*v([\d.]+)", line)
                 if m:
-                    version = m.group(1)
+                    version = m.group(2)
 
             # First layer extraction using Orca markers
             if line.startswith(";AFTER_LAYER_CHANGE"):
